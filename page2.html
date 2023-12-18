@@ -1,0 +1,57 @@
+<!-- page2.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiper - Home</title>
+    <link rel="stylesheet" href="styles.css"> <!-- CSS 파일 연결 -->
+    <script src="./src/main-2.js" type="module"></script>
+</head>
+
+<body>
+    <!-- 페이지 상단에 링크 버튼 3개 -->
+    <div class="page-links">
+        <button class="nav-button" onclick="changePage('/index.html')">상의</button>
+        <button class="nav-button" onclick="changePage('/page1.html')">하의</button>
+        <button class="nav-button" onclick="changePage('/page2.html')">신발</button>
+    </div>
+
+    <!-- 캔버스와 박스 컨테이너 -->
+    <canvas id="cvs"></canvas>
+    <div class="box-container">
+        <!-- 박스 요소들 -->
+        <div class="box" data-image-url="" data-image-index="0">
+            <div class="box-image"></div>
+            <div class="box-keyword"></div>
+        </div>
+        <div class="box" data-image-url="" data-image-index="1">
+            <div class="box-image"></div>
+            <div class="box-keyword"></div>
+        </div>
+        <div class="box" data-image-url="" data-image-index="2">
+            <div class="box-image"></div>
+            <div class="box-keyword"></div>
+        </div>
+    </div>
+
+    <!-- 페이지 이동 및 이미지 변경을 처리하는 스크립트 -->
+    <script>
+        function changePage(pageUrl) {
+            window.location.href = pageUrl;
+        }
+
+        function changeImage(index) {
+            const box = document.querySelector(`.box[data-image-index="${index}"]`);
+            const boxImage = box.querySelector('.box-image');
+            const imageUrl = prompt('Enter Image URL:'); // 사용자에게 이미지 URL 입력 받기
+
+            // 이미지 URL을 박스에 표시
+            boxImage.style.backgroundImage = `url("${imageUrl}")`;
+            console.log(`Show Image for Box ${index}:`, imageUrl);
+        }
+    </script>
+</body>
+</html>
