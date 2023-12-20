@@ -11,7 +11,7 @@ window.onload = () => {
 
     // 각 버튼에 대응되는 이미지 URL 배열
     const imageUrls = [
-        "https://images.pexels.com/photos/18056655/pexels-photo-18056655.jpeg",
+        "https://cdn.discordapp.com/attachments/1127521372973834284/1187041873634803813/1-removebg-preview.png?ex=659571e4&is=6582fce4&hm=e4f5180c72e8d4cb4f8770b7a55da5369326638242c16f0071ca95f7e591b941&",
         "https://images.pexels.com/photos/14159264/pexels-photo-14159264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "https://images.pexels.com/photos/16434592/pexels-photo-16434592/free-photo-of-wooden-structure-of-the-metropol-parasol-in-seville.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     ];

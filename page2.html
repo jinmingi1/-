@@ -39,6 +39,28 @@
 
     <!-- 페이지 이동 및 이미지 변경을 처리하는 스크립트 -->
     <script>
+        window.addEventListener('load', loadImages);
+
+        function loadImages() {
+            // 페이지에 로컬 스토리지에서 이미지 URL을 가져와서 설정
+            for (let i = 0; i < 3; i++) {
+                const imageUrl = localStorage.getItem(`box-image-${i}`);
+                if (imageUrl) {
+                    setImage(i, imageUrl);
+                }
+            }
+        }
+
+        function setImage(index, imageUrl) {
+            const box = document.querySelector(`.box[data-image-index="${index}"]`);
+            const boxImage = box.querySelector('.box-image');
+
+            // 이미지 URL을 박스에 표시
+            boxImage.style.backgroundImage = `url("${imageUrl}")`;
+            // data-image-url 속성에도 저장
+            box.setAttribute('data-image-url', imageUrl);
+        }
+
         function changePage(pageUrl) {
             window.location.href = pageUrl;
         }
@@ -46,10 +68,15 @@
         function changeImage(index) {
             const box = document.querySelector(`.box[data-image-index="${index}"]`);
             const boxImage = box.querySelector('.box-image');
-            const imageUrl = prompt('Enter Image URL:'); // 사용자에게 이미지 URL 입력 받기
+            const imageUrls = "https://images.pexels.com/photos/18056655/pexels-photo-18056655.jpeg"; // 변경할 이미지 URL
 
             // 이미지 URL을 박스에 표시
             boxImage.style.backgroundImage = `url("${imageUrl}")`;
+            // data-image-url 속성에도 저장
+            box.setAttribute('data-image-url', imageUrl);
+
+            // 로컬 스토리지에 이미지 URL 저장
+            localStorage.setItem(`box-image-${index}`, imageUrl);
             console.log(`Show Image for Box ${index}:`, imageUrl);
         }
     </script>
